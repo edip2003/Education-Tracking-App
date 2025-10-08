@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_share"
+        android:title="Share Task" />
+
+    <item
+        android:id="@+id/menu_delete"
+        android:title="Delete Task" />
+
+    <item
+        android:id="@+id/menu_edit_task"
+        android:title="Edit Task" />
+
+
+    <item
+        android:id="@+id/menu_view_answers"
+        android:title="View Answers" />
+
+
+
+</menu>

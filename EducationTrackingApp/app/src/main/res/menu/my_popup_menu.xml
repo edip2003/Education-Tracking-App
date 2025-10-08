@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/uploadMenu"
+        android:title="Upload Task" />
+
+    <item
+        android:id="@+id/finished"
+        android:title="Show Finished Tasks List" />
+
+    <item
+        android:id="@+id/createClass"
+        android:title="Create New Class" />
+
+    <item
+        android:id="@+id/viewMyClasses"
+        android:title="View My Classes" />
+
+    <item
+        android:id="@+id/logoutMenu"
+        android:title="Logout" />
+</menu>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <!-- Splash -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash">
+        <action android:id="@+id/action_splashFragment_to_firstFragment" app:destination="@id/firstFragment" />
+        <action android:id="@+id/action_splashFragment_to_studentFeedFragment" app:destination="@id/studentFeedFragment" />
+        <action android:id="@+id/action_splashFragment_to_parentFeedFragment" app:destination="@id/parentFeedFragment" />
+        <action android:id="@+id/action_splashFragment_to_studentHomeFragment" app:destination="@id/studentHomeFragment"/>
+        <action android:id="@+id/action_splashFragment_to_feedFragment" app:destination="@id/teacherFeedFragment" app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- First Page -->
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action android:id="@+id/action_firstFragment_to_studentUserFragment" app:destination="@id/studentUserFragment" />
+        <action android:id="@+id/action_firstFragment_to_parentUserFragment" app:destination="@id/parentUserFragment" />
+        <action android:id="@+id/action_firstFragment_to_teacherUserFragment" app:destination="@id/teacherUserFragment" />
+    </fragment>
+
+    <!-- User Login/Register Fragments -->
+    <fragment
+        android:id="@+id/parentUserFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ParentUserFragment"
+        android:label="fragment_parent_user"
+        tools:layout="@layout/fragment_parent_user" >
+        <argument android:name="userType" app:argType="string" />
+        <action android:id="@+id/action_parentUserFragment_to_parentHomeFragment" app:destination="@id/parentHomeFragment" />
+        <action android:id="@+id/action_parentUserFragment_to_firstFragment" app:destination="@id/firstFragment" />
+        <action android:id="@+id/action_parentUserFragment_to_parentFeedFragment" app:destination="@id/parentFeedFragment" />
+    </fragment>
+
+
+    <!-- Student Authentication -->
+    <fragment
+        android:id="@+id/studentUserFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.StudentUserFragment"
+        android:label="fragment_student_user"
+        tools:layout="@layout/fragment_student_user" >
+        <argument android:name="userType" app:argType="string" />
+        <action android:id="@+id/action_studentUserFragment_to_firstFragment" app:destination="@id/firstFragment" />
+        <action android:id="@+id/action_studentUserFragment_to_studentHomeFragment" app:destination="@id/studentHomeFragment">
+            <argument android:name="userType" app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/teacherUserFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.TeacherUserFragment"
+        android:label="fragment_teacher_user"
+        tools:layout="@layout/fragment_teacher_user" >
+        <action android:id="@+id/action_teacherUserFragment_to_feedFragment" app:destination="@id/teacherFeedFragment" />
+        <action android:id="@+id/action_teacherUserFragment_to_firstFragment" app:destination="@id/firstFragment" />
+        <action android:id="@+id/action_teacherUserFragment_to_homeFragment" app:destination="@id/homeFragment">
+            <argument android:name="userType" app:argType="string" />
+        </action>
+
+    </fragment>
+
+    <!-- Feed Fragments -->
+    <fragment
+        android:id="@+id/teacherFeedFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.TeacherFeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_teacher_feed" >
+        <argument android:name="userType" app:argType="string" android:defaultValue="unknown" />
+        <action android:id="@+id/action_feedFragment_to_uploadFragment" app:destination="@id/uploadFragment" />
+        <action android:id="@+id/action_feedFragment_to_teacherUserFragment" app:destination="@id/teacherUserFragment" />
+        <action android:id="@+id/action_feedFragment_to_studentUserFragment" app:destination="@id/studentUserFragment" />
+        <action android:id="@+id/action_feedFragment_to_parentUserFragment" app:destination="@id/parentUserFragment" />
+        <action android:id="@+id/action_feedFragment_to_firstFragment" app:destination="@id/firstFragment" />
+        <action android:id="@+id/action_feedFragment_to_finishedTasksFragment" app:destination="@id/finishedTasksFragment" />
+        <action android:id="@+id/action_feedFragment_to_viewAnswersFragment" app:destination="@id/viewAnswersFragment" />
+        <action android:id="@+id/action_feedFragment_to_myClassesFragment" app:destination="@id/myClassesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/studentFeedFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.StudentFeedFragment"
+        android:label="fragment_student_feed"
+        tools:layout="@layout/fragment_student_feed">
+
+        <argument android:name="filterType" app:argType="string" android:defaultValue="" />
+        <argument android:name="userType" app:argType="string" android:defaultValue="unknown" />
+
+        <action
+            android:id="@+id/action_studentFeedFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/parentFeedFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ParentFeedFragment"
+        android:label="fragment_parent_feed"
+        tools:layout="@layout/fragment_parent_feed" >
+        <argument android:name="userType" app:argType="string" android:defaultValue="parent" />
+        <argument android:name="screenMode" app:argType="string" android:defaultValue="default" />
+        <action android:id="@+id/action_parentFeedFragment_to_firstFragment" app:destination="@id/firstFragment" />
+        <action android:id="@+id/action_parentFeedFragment_to_parentUserFragment" app:destination="@id/parentUserFragment" />
+        <action android:id="@+id/action_parentFeedFragment_to_viewEvaluationsFragment" app:destination="@id/viewEvaluationsFragment" />
+        <action android:id="@+id/action_parentFeedFragment_to_childrenListFragment" app:destination="@id/childrenListFragment" />
+    </fragment>
+
+    <!-- Other Functional Fragments -->
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" >
+        <action android:id="@+id/action_uploadFragment_to_feedFragment" app:destination="@id/teacherFeedFragment" />
+        <argument android:name="academicStage" app:argType="string" />
+        <argument android:name="gradeLevel" app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/finishedTasksFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.FinishedTasksFragment"
+        android:label="fragment_finished_tasks"
+        tools:layout="@layout/fragment_finished_tasks" >
+        <action android:id="@+id/action_finishedTasksFragment_to_viewAnswersFragment" app:destination="@id/viewAnswersFragment" />
+        <argument android:name="academicStage" app:argType="string" />
+        <argument android:name="gradeLevel" app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewAnswersFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ViewAnswersFragment"
+        android:label="fragment_view_answers"
+        tools:layout="@layout/fragment_view_answers" >
+        <argument android:name="taskId" app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/childrenListFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ChildrenListFragment"
+        android:label="View Children">
+        <action android:id="@+id/action_childrenListFragment_to_childEvaluationsFragment" app:destination="@id/childEvaluationsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewEvaluationsFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ViewEvaluationsFragment"
+        android:label="View Evaluations"
+        tools:layout="@layout/fragment_view_evaluations" />
+
+    <fragment
+        android:id="@+id/childEvaluationsFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ViewEvaluationsFragment"
+        android:label="Child Evaluations"
+        tools:layout="@layout/fragment_view_evaluations">
+        <argument android:name="childName" app:argType="string" />
+        <argument android:name="childEmail" app:argType="string" />
+        <argument android:name="childAge" app:argType="string" />
+        <argument android:name="childGender" app:argType="string" />
+        <argument android:name="childAcademicStage" app:argType="string" />
+        <argument android:name="childGradeLevel" app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/myClassesFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.MyClassesFragment"
+        android:label="My Classes" >
+        <!-- ✅ إلى UploadFragment -->
+        <action
+            android:id="@+id/action_myClassesFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+
+        <!-- ✅ إلى FinishedTasksFragment -->
+        <action
+            android:id="@+id/action_myClassesFragment_to_finishedTasksFragment"
+            app:destination="@id/finishedTasksFragment" />
+
+        <!-- ✅ إلى StudentsFragment -->
+        <action
+            android:id="@+id/action_myClassesFragment_to_studentsFragment"
+            app:destination="@id/studentsFragment" />
+
+        <!-- ✅ إلى  TeacherClassTasksFragment -->
+        <action
+            android:id="@+id/action_myClassesFragment_to_teacherClassTasksFragment"
+            app:destination="@id/teacherClassTasksFragment">
+            <argument
+                android:name="academicStage"
+                app:argType="string" />
+            <argument
+                android:name="gradeLevel"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/studentsFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.StudentsFragment"
+        android:label="Students" >
+        <argument
+            android:name="academicStage"
+            app:argType="string" />
+        <argument
+            android:name="gradeLevel"
+            app:argType="string" />
+    </fragment>
+
+    <!-- للوظائف الخاصلة بكل صف حسب المعلم TeacherClassTasksFragment -->
+    <fragment
+        android:id="@+id/teacherClassTasksFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.TeacherClassTasksFragment"
+        tools:layout="@layout/fragment_teacher_class_tasks">
+        <action android:id="@+id/action_teacherClassTasksFragment_to_viewAnswersFragment" app:destination="@id/viewAnswersFragment" />
+
+        <argument
+            android:name="academicStage"
+            app:argType="string" />
+        <argument
+            android:name="gradeLevel"
+            app:argType="string" />
+    </fragment>
+
+    <!-- Home Fragments -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.TeacherHomeFragment"
+        android:label="HomeFragment">
+        <argument android:name="userType" app:argType="string" android:defaultValue="unknown" />
+        <action android:id="@+id/action_homeFragment_to_feedFragment" app:destination="@id/teacherFeedFragment" />
+    </fragment>
+
+
+
+    <!--All Students -->
+    <fragment
+        android:id="@+id/allStudentsFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.AllStudentsFragment"
+        android:label="All Students"
+        tools:layout="@layout/fragment_all_students" />
+
+    <!-- Teacher Profile -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.TeacherProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <argument android:name="userType" app:argType="string" android:defaultValue="unknown" />
+    </fragment>
+
+
+    <!--Student Home Fragment -->
+    <fragment
+        android:id="@+id/studentHomeFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.StudentHomeFragment"
+        android:label="fragment_student_home"
+        tools:layout="@layout/fragment_student_home">
+
+        <action
+            android:id="@+id/action_studentHomeFragment_to_studentFeedFragment"
+            app:destination="@id/studentFeedFragment">
+            <argument android:name="filterType" app:argType="string" android:defaultValue="" />
+            <argument android:name="userType" app:argType="string" android:defaultValue="student" />
+        </action>
+    </fragment>
+
+    <!--Parent Home Fragment -->
+    <fragment
+        android:id="@+id/parentHomeFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ParentHomeFragment"
+        android:label="Parent Home"
+        tools:layout="@layout/fragment_parent_home">
+
+        <action
+            android:id="@+id/action_parentHomeFragment_to_childrenListFragment"
+            app:destination="@id/childrenListFragment" />
+
+        <action
+            android:id="@+id/action_parentHomeFragment_to_parentFeedFragment"
+            app:destination="@id/parentFeedFragment" />
+
+    </fragment>
+
+
+
+    <!--Student Profıle Fragment -->
+    <fragment
+        android:id="@+id/studentProfileFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.StudentProfileFragment"
+        android:label="Student Profile"
+        tools:layout="@layout/fragment_student_profile">
+        <argument android:name="userType" app:argType="string" android:defaultValue="unknown" />
+    </fragment>
+
+
+    <!--Parent Profıle Fragment -->
+    <fragment
+        android:id="@+id/parentProfileFragment"
+        android:name="com.edipismailoglu.educationtrackingapp.view.ParentProfileFragment"
+        android:label="Parent Profile"
+        tools:layout="@layout/fragment_parent_profile" />
+
+
+
+</navigation>

@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/deleteClassMenu"
+        android:title="Delete" />
+    <item
+        android:id="@+id/editClassMenu"
+        android:title="Edit" />
+    <item
+        android:id="@+id/viewClassTasksMenu"
+        android:title="View Tasks" />
+    <item
+        android:id="@+id/viewStudentsMenu"
+        android:title="View Students" />
+</menu>

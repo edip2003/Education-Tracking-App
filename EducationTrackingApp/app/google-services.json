@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "210260078902",
+    "project_id": "educationtrackingapp",
+    "storage_bucket": "educationtrackingapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210260078902:android:7e0bda3e4b43623408c397",
+        "android_client_info": {
+          "package_name": "com.edipismailoglu.educationtrackingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTk9lShXnjnmCxB0FggPmAvO-UapvroHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

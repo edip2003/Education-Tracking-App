@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/viewChildrenMenu"
+        android:title="View My Children" />
+
+    <item
+        android:id="@+id/addChildMenu"
+        android:title="Add Child" />
+
+
+
+
+
+</menu>

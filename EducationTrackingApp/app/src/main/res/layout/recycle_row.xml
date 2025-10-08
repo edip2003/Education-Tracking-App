@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    app:strokeColor="?attr/colorOutline"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/recyclerEmailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teacher_email_label"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    android:contentDescription="@string/teacher_email_description"
+                    tools:text="Teacher Email: teacher@example.com" />
+
+                <TextView
+                    android:id="@+id/recyclerDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload_date_label"
+                    android:textSize="14sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="@string/upload_date_description"
+                    tools:text="📅 Upload Date: 01/01/2024" />
+
+                <TextView
+                    android:id="@+id/recyclerFinishDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finish_date_label"
+                    android:textSize="14sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/finish_date_description"
+                    tools:text="⏰ Finish Date: 03/01/2024" />
+
+                <!-- Target Class Chip -->
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/recyclerTargetClassChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/target_class_label"
+                    android:textSize="14sp"
+                    android:textColor="?attr/colorOnPrimaryContainer"
+                    app:chipBackgroundColor="?attr/colorPrimaryContainer"
+                    app:chipCornerRadius="12dp"
+                    app:chipStrokeColor="?attr/colorOutline"
+                    app:chipStrokeWidth="1dp"
+                    app:chipIcon="@drawable/ic_class"
+                    app:chipIconTint="?attr/colorOnPrimaryContainer"
+                    app:chipIconSize="18dp"
+                    style="@style/Widget.Material3.Chip.Assist"
+                    android:contentDescription="@string/target_class_description"
+                    tools:text="Primary - 5" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/optionsMenuContainer"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/options_menu_description">
+
+                <ImageView
+                    android:id="@+id/optionsMenuIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_more_vert"
+                    app:tint="?attr/colorOnSurfaceVariant"
+                    android:contentDescription="@string/options_menu_description" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Task Image -->
+        <ImageView
+            android:id="@+id/recyclerImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="12dp"
+            android:background="?attr/colorSurfaceContainer"
+            app:cardCornerRadius="12dp"
+            android:contentDescription="@string/task_image_description"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <!-- Task Description -->
+        <TextView
+            android:id="@+id/recyclerCommentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:text="@string/task_description_label"
+            android:textSize="16sp"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="@string/task_description_description"
+            tools:text="📝 Task Description: Complete the math assignment on fractions." />
+
+        <!-- Submit Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitAnswerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:text="@string/submit_answer_label"
+            android:textSize="15sp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="8dp"
+            app:backgroundTint="?attr/colorPrimary"
+            app:cornerRadius="8dp"
+            app:elevation="2dp"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:contentDescription="@string/submit_answer_description" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

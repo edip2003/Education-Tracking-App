@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".view.UploadFragment"
+    android:background="#F9F9F9">
+
+    <!-- Task Image -->
+    <ImageView
+        android:id="@+id/uploadImageView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:onClick="imageViewClicked"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/uploadimage"
+        android:scaleType="centerCrop"
+        android:background="@drawable/image_placeholder_background"
+        android:contentDescription="Select Image" />
+
+    <!-- Task Description -->
+    <EditText
+        android:id="@+id/uploadCommentText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background_focused"
+        android:hint="📝 Task Description"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:padding="14dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/uploadImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Target Class - AutoComplete with Dropdown -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/targetClassLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="🎯 Target Class"
+        android:layout_marginTop="16dp"
+        app:endIconMode="dropdown_menu"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/uploadCommentText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/uploadTargetClassText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:minHeight="48dp"
+            android:padding="14sp"
+            android:textSize="16sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Finish Date -->
+    <EditText
+        android:id="@+id/uploadFinishDateText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="📅 Finish Date (dd/MM/yyyy)"
+        android:minHeight="48dp"
+        android:padding="14dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/targetClassLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Finish Time -->
+    <EditText
+        android:id="@+id/uploadFinishTimeText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="⏰ Finish Time (HH:mm)"
+        android:minHeight="48dp"
+        android:padding="14dp"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/uploadFinishDateText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Upload Button -->
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="uploadClicked"
+        android:text="Upload Task"
+        android:textAllCaps="false"
+        android:background="@drawable/button_ripple_background"
+        android:textColor="@android:color/white"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="12dp"
+        android:textSize="17sp"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/uploadFinishTimeText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
